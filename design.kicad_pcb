@@ -128,11 +128,6 @@
       (net 5 "unconnected-(U1-PadC1)") (pinfunction "EN") (pintype "input") (tstamp 0fb27e11-fde6-4a25-adbb-e9684771b369))
     (pad "C2" smd circle (at 0.2 0.4) (size 0.25 0.25) (layers "F.Cu" "F.Paste" "F.Mask")
       (net 6 "unconnected-(U1-PadC2)") (pinfunction "FB") (pintype "input") (tstamp 08ec951f-e7eb-41cf-9589-697107a98e88))
-    (model "/Users/tobias/Documents/GitHub/ki-lib/3D/Converter_DCDC.3dshapes/TPS61099xYFFT.step" hide
-      (offset (xyz 0 0 0))
-      (scale (xyz 1 1 1))
-      (rotate (xyz -90 0 0))
-    )
   )
 
   (gr_text "<<hash>>\n<<project_name>>\n<<version>>\n<<ID>>" (at 169 94) (layer "F.SilkS") (tstamp 72f86fac-1de9-4853-b551-bbe9529da2a3)
