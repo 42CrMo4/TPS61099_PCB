@@ -86,11 +86,11 @@ jobs:
       uses: actions/upload-artifact@v1
       with:
         name: ${{ env.project_name }}_Schematic_raw
-        path: 'design.sch'
+        path: 'design.kicad_sch'
 
     - name: Run Schematic and BOM 
       run: |
-        [ -f design.sch ] && kiplot -d Fabrication -s all  print_sch interactive_bom
+        [ -f design.kicad_sch ] && kiplot -d Fabrication -s all  print_sch interactive_bom
     #bom_csv
     - name: Retrieve resulted PDF and BOM
       uses: actions/upload-artifact@v1

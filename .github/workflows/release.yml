@@ -89,7 +89,7 @@ jobs:
 
     - name: Run Schematic and BOM 
       run: |
-        [ -f design.sch ] && kiplot -d Fabrication -s all  print_sch interactive_bom 
+        [ -f design.kicad_sch ] && kiplot -d Fabrication -s all  print_sch interactive_bom 
 
     - name: Run PCB stuff
       run: |
