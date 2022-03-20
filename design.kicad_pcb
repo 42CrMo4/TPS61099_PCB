@@ -136,4 +136,8 @@
     )
   )
 
+  (gr_text "<<hash>>\n<<project_name>>\n<<date>>\n<<version>>\n<<ID>>" (at 169 94) (layer "F.SilkS") (tstamp 72f86fac-1de9-4853-b551-bbe9529da2a3)
+    (effects (font (size 1.5 1.5) (thickness 0.3)))
+  )
+
 )
