@@ -1,0 +1,19 @@
+Row,Description,Part,References,Value,Footprint,Quantity Per PCB,Status,Datasheet,STANDARD,PARTREV,MAXIMUM_PACKAGE_HEIGHT,MANUFACTURER
+1,,TPS61099YFFT,U1,TPS61099YFFT,BGA6N40P3X2_122X88X62N,1, ,,IPC 7351B,K,0.625mm,Texas Instruments
+
+
+
+
+
+Project info:
+Schematic:,design
+Variant:,default
+Revision:,<<version>>
+Date:,<<date>>
+KiCad Version:,6.0.2+dfsg-1~bpo11+1
+Statistics:
+Component Groups:,1
+Component Count:,1
+Fitted Components:,1
+Number of PCBs:,1
+Total Components:,1
