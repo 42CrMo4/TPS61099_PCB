@@ -168,7 +168,7 @@ jobs:
         path: 'design.kicad_pcb'
     - name: Run PCB stuff
       run: |
-        [ -f design.kicad_pcb ] && kiplot  -d Fabrication -s all print_front print_back gerbers gerber_drills pcb_top_b pcb_bottom_b step
+        [ -f design.kicad_pcb ] && kiplot  -d Fabrication -s all print_front print_back gerbers gerber_drills pcb_top_b pcb_bottom_b
     - name: Retrieve results
       uses: actions/upload-artifact@v1
       with:
