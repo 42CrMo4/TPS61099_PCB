@@ -15,7 +15,7 @@ on:
 jobs:
   ERC:
     runs-on: ubuntu-latest
-    container: setsoft/kicad_auto:latest
+    container: setsoft/kicad_auto:dev_k6
 
     steps:
     - uses: actions/checkout@v2
@@ -31,7 +31,7 @@ jobs:
 
   DRC:
     runs-on: ubuntu-latest
-    container: setsoft/kicad_auto:latest
+    container: setsoft/kicad_auto:dev_k6
     needs: ERC
 
     steps:
@@ -51,7 +51,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-    container: setsoft/kicad_auto:latest
+    container: setsoft/kicad_auto:dev_k6
     needs: DRC
 
     steps:
