@@ -22,7 +22,7 @@ jobs:
 
     - name: Run ERC
       run: |
-        [ -f *.sch ] && kiplot  -d Fabrication -s update_xml,run_drc -i
+        [ -f *.kicad_sch ] && kiplot  -d Fabrication -s update_xml,run_drc -i
     # - name: Retrieve results
     #   uses: actions/upload-artifact@v1
     #   with:
@@ -71,11 +71,11 @@ jobs:
       run: |
         export COMMIT=$(git rev-parse --short HEAD)
         echo "COMMIT = ${COMMIT}"
-        sed -i "s!<<hash>>!Git-${COMMIT}!" *.sch
-        sed -i "s!<<project_name>>!${{ env.project_name }}!" *.sch
-        sed -i "s!<<date>>!$(date +'%Y-%m-%d')!" *.sch 
-        sed -i "s!<<version>>!${{ github.ref_name }}!" *.sch 
-        sed -i "s!<<ID>>!${{ env.ID_prefix }}${{ env.ID }}!" *.sch 
+        sed -i "s!<<hash>>!Git-${COMMIT}!" *.kicad_sch
+        sed -i "s!<<project_name>>!${{ env.project_name }}!" *.kicad_sch
+        sed -i "s!<<date>>!$(date +'%Y-%m-%d')!" *.kicad_sch 
+        sed -i "s!<<version>>!${{ github.ref_name }}!" *.kicad_sch 
+        sed -i "s!<<ID>>!${{ env.ID_prefix }}${{ env.ID }}!" *.kicad_sch 
 
     - name: Update the PCBs with the git hash
       run: |
@@ -107,6 +107,6 @@ jobs:
 
     - uses: ncipollo/release-action@v1
       with:
-        artifacts: "Fabrication/*, Fabrication/BoM/*ibom*, *.sch, Gerber.zip, *.kicad_pcb, Fabrication/3D/*.step, Fabrication/PCB/blue/*"
+        artifacts: "Fabrication/*, Fabrication/BoM/*ibom*, *.kicad_sch, Gerber.zip, *.kicad_pcb, Fabrication/3D/*.step, Fabrication/PCB/blue/*"
         bodyFile: "release_note.md"
         token: ${{ secrets.GITHUB_TOKEN }}

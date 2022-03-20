@@ -6,7 +6,7 @@ on:
   push:
     branches: [ main ]
     paths:
-      - '*.sch'
+      - '*.kicad_sch'
       - '*.kicad_pcb'
       - '*.kiplot.yaml'
       - '.github/workflows/generate_output.yml'
@@ -14,7 +14,7 @@ on:
   pull_request:
     branches: [ main ]
     paths:
-      - '*.sch'
+      - '*.kicad_sch'
       - '*.kicad_pcb'
       - '*.kiplot.yaml'
       - '.github/workflows/generate_output.yml'
@@ -31,7 +31,7 @@ jobs:
 
     - name: Run ERC
       run: |
-        [ -f *.sch ] && kiplot  -d Fabrication -s update_xml,run_drc -i
+        [ -f *.kicad_sch ] && kiplot  -d Fabrication -s update_xml,run_drc -i
     # - name: Retrieve results
     #   uses: actions/upload-artifact@v1
     #   with:
@@ -78,10 +78,10 @@ jobs:
       run: |
         export COMMIT=$(git rev-parse --short HEAD)
         echo "COMMIT = ${COMMIT}"
-        sed -i "s!<<hash>>!Git-${COMMIT}!" *.sch
-        sed -i "s!<<project_name>>!${{ env.project_name }}!" *.sch
-        sed -i "s!<<date>>!$(date +'%Y-%m-%d')!" *.sch 
-        sed -i "s!<<ID>>!${{ env.ID_prefix }}${{ env.ID }}!" *.sch 
+        sed -i "s!<<hash>>!Git-${COMMIT}!" *.kicad_sch
+        sed -i "s!<<project_name>>!${{ env.project_name }}!" *.kicad_sch
+        sed -i "s!<<date>>!$(date +'%Y-%m-%d')!" *.kicad_sch 
+        sed -i "s!<<ID>>!${{ env.ID_prefix }}${{ env.ID }}!" *.kicad_sch 
     - name: Retrieve results from git hash update
       uses: actions/upload-artifact@v1
       with:
@@ -119,7 +119,7 @@ jobs:
 
   #   - name: Run BOM 
   #     run: |
-  #       [ -f *.sch ] && kiplot -d Fabrication -s all bom_csv pcb_top_b
+  #       [ -f *.kicad_sch ] && kiplot -d Fabrication -s all bom_csv pcb_top_b
   #       head -n -12 Fabrication/BoM/design-bom.csv > Fabrication/BoM/design-bom-short.csv 
   #   #- name: Retrieve resulted BOM
   #   #  uses: actions/upload-artifact@v1

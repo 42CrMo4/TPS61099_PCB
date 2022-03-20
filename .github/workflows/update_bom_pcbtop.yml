@@ -6,7 +6,7 @@ on:
   push:
     branches: [ main ]
     paths:
-      - '*.sch'
+      - '*.kicad_sch'
       - '*.kicad_pcb'
       - '*.kiplot.yaml'
       - '.github/workflows/generate_output.yml'
@@ -14,7 +14,7 @@ on:
   pull_request:
     branches: [ main ]
     paths:
-      - '*.sch'
+      - '*.kicad_sch'
       - '*.kicad_pcb'
       - '*.kiplot.yaml'
       - '.github/workflows/generate_output.yml'
@@ -41,7 +41,7 @@ jobs:
 
     - name: Run BOM 
       run: |
-        [ -f *.sch ] && kiplot -d Fabrication -s all bom_csv pcb_top_b
+        [ -f *.kicad_sch ] && kiplot -d Fabrication -s all bom_csv pcb_top_b
         head -n -12 Fabrication/BoM/design-bom.csv > Fabrication/BoM/design-bom-short.csv 
 
     - uses: stefanzweifel/git-auto-commit-action@v4
