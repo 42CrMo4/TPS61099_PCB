@@ -134,6 +134,11 @@
       (scale (xyz 1 1 1))
       (rotate (xyz -90 0 0))
     )
+    (model ":ki-lib_dir:Converter_DCDC.3dshapes/TPS61099xYFFT.step"
+      (offset (xyz 0 0 0))
+      (scale (xyz 1 1 1))
+      (rotate (xyz -90 0 0))
+    )
   )
 
   (gr_rect (start 143 88) (end 181 100) (layer "Edge.Cuts") (width 0.05) (fill none) (tstamp d205a3ef-6fc7-4793-884a-a92f50059f45))
