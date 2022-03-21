@@ -41,7 +41,7 @@ jobs:
 
     - name: Run BOM 
       run: |
-        [ -f *.kicad_sch ] && kiplot -d Fabrication -s all bom_csv pcb_top_b
+        [ -f *.kicad_sch ] && kiplot -d Fabrication -s all bom_csv pcb_top_b pcb_bottom_b
         head -n -12 Fabrication/BoM/design-bom.csv > Fabrication/BoM/design-bom-short.csv 
 
     - uses: stefanzweifel/git-auto-commit-action@v4
