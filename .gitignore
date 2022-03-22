@@ -13,6 +13,7 @@
 *.sch-bak
 *~
 _autosave-*
+*_autosave-*
 *.tmp
 *-save.pro
 *-save.kicad_pcb
@@ -93,4 +94,3 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
-#auto_saved_files#
