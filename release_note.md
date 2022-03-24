@@ -1,7 +1,10 @@
 ![PCB Top design](Fabrication/PCB/blue/design-top.png)
+![PCB Top design](Fabrication/PCB/blue/design-buttom.png)
+
+first RC release
 
 New
-* SMD LED 
+* na
 
 Changes
 * na
