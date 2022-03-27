@@ -748,8 +748,8 @@
   )
 
   (gr_rect (start 134 84.074) (end 159 106.934) (layer "Edge.Cuts") (width 0.05) (fill none) (tstamp d205a3ef-6fc7-4793-884a-a92f50059f45))
-  (gr_text "<<hash>>\n<<project_name>>\n<<version>>\n<<date>>\n<<ID>>" (at 146.5 96) (layer "B.SilkS") (tstamp 72f86fac-1de9-4853-b551-bbe9529da2a3)
-    (effects (font (size 1.5 1.5) (thickness 0.3)) (justify mirror))
+  (gr_text "<<project_name>>\n<<ID>>\n<<version>>\n<<date>>\n<<hash>>\ngll.wf/p/001" (at 146.5 95.504) (layer "B.SilkS") (tstamp 72f86fac-1de9-4853-b551-bbe9529da2a3)
+    (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
   )
   (gr_text "GND" (at 143 88.3) (layer "F.SilkS") (tstamp 0ee253fe-d866-4e22-91d5-9b3c7448a2a7)
     (effects (font (size 0.75 0.75) (thickness 0.15)))
