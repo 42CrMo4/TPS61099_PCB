@@ -97,8 +97,7 @@ jobs:
 
     - name: Run PCB stuff
       run: |
-        [ -f design.kicad_pcb ] && kiplot  -d Gerber -s all gerbers 
-      # gerber_drills
+        [ -f design.kicad_pcb ] && kiplot  -d Gerber -s all gerbers gerber_drills
 
     - uses: vimtor/action-zip@v1
       with:
