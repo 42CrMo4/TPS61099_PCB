@@ -87,6 +87,11 @@ jobs:
         sed -i "s!<<version>>!${{ github.ref_name }}!" *.kicad_pcb 
         sed -i "s!<<ID>>!ID: ${{ env.ID_prefix }}${{ env.ID }}!" *.kicad_pcb 
 
+    - name: Update the release note with the RepoName / Tag
+      run: |
+        sed -i "s!<<repo_name>>!${{ github.repository }}!" release_note.md
+        sed -i "s!<<tag>>!${{ github.ref_name }}!" release_note.md
+
     - name: Run Schematic and BOM 
       run: |
         [ -f design.kicad_sch ] && kiplot -d Fabrication -s all  print_sch interactive_bom 
