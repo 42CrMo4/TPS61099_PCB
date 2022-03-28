@@ -79,8 +79,8 @@ jobs:
 
     - name: Update the release note with the RepoName / Tag
       run: |
-        sed -i "s!<<ag>>!${ GITHUB_REPOSITORY }!" release_note.md
-        sed -i "s!<<repo_name>>!${{ GITHUB_REF_NAME }}!" release_note.md
+        sed -i "s!<<ag>>!${{ github.repository }}!" release_note.md
+        sed -i "s!<<repo_name>>!${{ github.ref_name }}!" release_note.md
 
     - name: Update the PCBs with the git hash
       run: |
