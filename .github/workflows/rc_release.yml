@@ -77,6 +77,11 @@ jobs:
         sed -i "s!<<version>>!${{ github.ref_name }}!" *.kicad_sch 
         sed -i "s!<<ID>>!ID: ${{ env.ID_prefix }}${{ env.ID }}!" *.kicad_sch 
 
+    - name: Update the release note with the RepoName / Tag
+      run: |
+        sed -i "s!<<ag>>!${ GITHUB_REPOSITORY }!" release_note.md
+        sed -i "s!<<repo_name>>!${{ GITHUB_REF_NAME }}!" release_note.md
+
     - name: Update the PCBs with the git hash
       run: |
         export COMMIT=$(git rev-parse --short HEAD)

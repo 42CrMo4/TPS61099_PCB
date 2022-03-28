@@ -1,5 +1,5 @@
-![PCB Top design](Fabrication/PCB/blue/design-top.png)
-![PCB Bottom design](Fabrication/PCB/blue/design-bottom.png)
+![PCB Top design](https://github.com/<<repo_name>>/releases/download/<<tag>>/design-top.png)
+![PCB Bottom design](https://github.com/<<repo_name>>/releases/download/<<tag>>/design-bottom.png)
 
 first RC release
 
