@@ -11,7 +11,7 @@ preflight:
   #update_qr: true
 
 global:
-   output: '%p_%r_%d.%x'
+   output: '%p-%I_%r_%d.%x'
 
 outputs:
 
