@@ -10,8 +10,8 @@ preflight:
   ignore_unconnected: false
   #update_qr: true
 
-#global:
-  # output: '%D_%f_rev_%r-%i.%x'
+global:
+   output: '%p_%r_%d.%x'
 
 outputs:
 
