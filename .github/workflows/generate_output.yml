@@ -142,6 +142,7 @@ jobs:
       run: |
         apt update
         apt -y install git git-lfs zip librsvg2-bin imagemagick
+      # apt -y install git-lfs
       # git lfs install
     
     - name: Checkout Repository
