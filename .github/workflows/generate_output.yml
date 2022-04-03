@@ -92,11 +92,11 @@ jobs:
       run: |
         [ -f design.kicad_sch ] && kiplot -d Fabrication -s all  print_sch interactive_bom
     #bom_csv
-    - name: Retrieve resulted PDF and BOM
-      uses: actions/upload-artifact@v1
-      with:
-        name: FabSch_Output
-        path: 'Fabrication'
+  #  - name: Retrieve resulted PDF and BOM
+  #    uses: actions/upload-artifact@v1
+  #    with:
+  #      name: FabSch_Output
+  #      path: 'Fabrication'
 
   # BOM:
   #   name: Update Bom and upload
