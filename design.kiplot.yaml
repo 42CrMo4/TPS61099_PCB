@@ -76,7 +76,7 @@ outputs:
 
   - name: 'bom_csv_upload'
     comment: "Bill of Materials in CSV format" 
-    name: design-bom
+    name: 'design-bom'
     type: bom
     dir: BoM
     options:
