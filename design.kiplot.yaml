@@ -76,11 +76,11 @@ outputs:
 
   - name: 'ttt'
     comment: "Bill of Materials in CSV format" 
-    # name: 'design-bom'
     type: bom
     dir: BoM
     options:
       format: CSV
+      output: design-bom.csv
       hide_pcb_info: false
       hide_stats_info: false
 
