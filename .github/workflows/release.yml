@@ -22,12 +22,12 @@ jobs:
 
     - name: Run ERC
       run: |
-        [ -f *.kicad_sch ] && kiplot  -d Fabrication -s update_xml,run_drc -i
+        [ -f *.kicad_sch ] && kiplot  -d Fabrication_temp -s update_xml,run_drc -i
     # - name: Retrieve results
     #   uses: actions/upload-artifact@v1
     #   with:
     #     name: ERC_Output
-    #     path: Fabrication
+    #     path: Fabrication_temp
 
   DRC:
     runs-on: ubuntu-latest
@@ -39,15 +39,15 @@ jobs:
 
     - name: Run DRC
       run: |
-        [ -f *.kicad_pcb ] && kiplot  -d Fabrication -s update_xml,run_erc -i
+        [ -f *.kicad_pcb ] && kiplot  -d Fabrication_temp -s update_xml,run_erc -i
     # - name: Retrieve results
     #   uses: actions/upload-artifact@v1
     #   with:
     #     name: DRC_Output
-    #     path: Fabrication
+    #     path: Fabrication_temp
     
   FabSch:
-    name: Fabrication files
+    name: Fabrication_temp files
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -94,11 +94,11 @@ jobs:
 
     - name: Run Schematic and BOM 
       run: |
-        [ -f design.kicad_sch ] && kiplot -d Fabrication -s all  print_sch interactive_bom 
+        [ -f design.kicad_sch ] && kiplot -d Fabrication_temp -s all  print_sch interactive_bom 
 
     - name: Run PCB stuff
       run: |
-        [ -f design.kicad_pcb ] && kiplot  -d Fabrication -s all print_front print_back pcb_top_b pcb_bottom_b step
+        [ -f design.kicad_pcb ] && kiplot  -d Fabrication_temp -s all print_front print_back pcb_top_b pcb_bottom_b step
 
     - name: Run PCB stuff
       run: |
@@ -112,6 +112,6 @@ jobs:
 
     - uses: ncipollo/release-action@v1
       with:
-        artifacts: "Fabrication/*, Fabrication/BoM/*ibom*, *.kicad_sch, Gerber.zip, *.kicad_pcb, Fabrication/3D/*.step, Fabrication/PCB/blue/*"
+        artifacts: "Fabrication_temp/*, Fabrication_temp/BoM/*ibom*, *.kicad_sch, Gerber.zip, *.kicad_pcb, Fabrication_temp/3D/*.step, Fabrication_temp/PCB/blue/*"
         bodyFile: "docs/release_note.md"
         token: ${{ secrets.GITHUB_TOKEN }}

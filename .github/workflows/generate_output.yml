@@ -31,12 +31,12 @@ jobs:
 
     - name: Run ERC
       run: |
-        [ -f *.kicad_sch ] && kiplot  -d Fabrication -s update_xml,run_drc -i
+        [ -f *.kicad_sch ] && kiplot  -d Fabrication_temp -s update_xml,run_drc -i
     # - name: Retrieve results
     #   uses: actions/upload-artifact@v1
     #   with:
     #     name: ERC_Output
-    #     path: Fabrication
+    #     path: Fabrication_temp
 
   DRC:
     runs-on: ubuntu-latest
@@ -48,12 +48,12 @@ jobs:
 
     - name: Run DRC
       run: |
-        [ -f *.kicad_pcb ] && kiplot  -d Fabrication -s update_xml,run_erc -i
+        [ -f *.kicad_pcb ] && kiplot  -d Fabrication_temp -s update_xml,run_erc -i
     # - name: Retrieve results
     #   uses: actions/upload-artifact@v1
     #   with:
     #     name: DRC_Output
-    #     path: Fabrication
+    #     path: Fabrication_temp
 
   FabSch:
     name: Schematic fabrication files
@@ -90,13 +90,13 @@ jobs:
 
     - name: Run Schematic and BOM 
       run: |
-        [ -f design.kicad_sch ] && kiplot -d Fabrication -s all  print_sch interactive_bom
+        [ -f design.kicad_sch ] && kiplot -d Fabrication_temp -s all  print_sch interactive_bom
     #bom_csv
   #  - name: Retrieve resulted PDF and BOM
   #    uses: actions/upload-artifact@v1
   #    with:
   #      name: FabSch_Output
-  #      path: 'Fabrication'
+  #      path: 'Fabrication_temp'
 
   # BOM:
   #   name: Update Bom and upload
@@ -119,13 +119,13 @@ jobs:
 
   #   - name: Run BOM 
   #     run: |
-  #       [ -f *.kicad_sch ] && kiplot -d Fabrication -s all bom_csv pcb_top_b
-  #       head -n -12 Fabrication/BoM/design-bom.csv > Fabrication/BoM/design-bom-short.csv 
+  #       [ -f *.kicad_sch ] && kiplot -d Fabrication_temp -s all bom_csv pcb_top_b
+  #       head -n -12 Fabrication_temp/BoM/design-bom.csv > Fabrication_temp/BoM/design-bom-short.csv 
   #   #- name: Retrieve resulted BOM
   #   #  uses: actions/upload-artifact@v1
   #   #  with:
   #   #    name: BoM
-  #   #    path: 'Fabrication'
+  #   #    path: 'Fabrication_temp'
   #   - uses: stefanzweifel/git-auto-commit-action@v4
   #     with:
   #       repository: .
@@ -169,9 +169,9 @@ jobs:
         path: 'design.kicad_pcb'
     - name: Run PCB stuff
       run: |
-        [ -f design.kicad_pcb ] && kiplot  -d Fabrication -s all print_front print_back pcb_top_b pcb_bottom_b step
+        [ -f design.kicad_pcb ] && kiplot  -d Fabrication_temp -s all print_front print_back pcb_top_b pcb_bottom_b step
     - name: Retrieve results
       uses: actions/upload-artifact@v1
       with:
         name: FabPCB_Output
-        path: 'Fabrication'
+        path: 'Fabrication_temp'
