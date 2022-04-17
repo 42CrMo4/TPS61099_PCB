@@ -89,8 +89,8 @@ jobs:
 
     - name: Update the release note with the RepoName / Tag
       run: |
-        sed -i "s!<<repo_name>>!${{ github.repository }}!" release_note.md
-        sed -i "s!<<tag>>!${{ github.ref_name }}!" release_note.md
+        sed -i "s!<<repo_name>>!${{ github.repository }}!" docs/release_note.md
+        sed -i "s!<<tag>>!${{ github.ref_name }}!" docs/release_note.md
 
     - name: Run Schematic and BOM 
       run: |
@@ -113,6 +113,6 @@ jobs:
     - uses: ncipollo/release-action@v1
       with:
         artifacts: "Fabrication/*, Fabrication/BoM/*ibom*, *.kicad_sch, Gerber.zip, *.kicad_pcb, Fabrication/3D/*.step, Fabrication/PCB/blue/*"
-        bodyFile: "release_note.md"
+        bodyFile: "docs/release_note.md"
         prerelease: true
         token: ${{ secrets.GITHUB_TOKEN }}
